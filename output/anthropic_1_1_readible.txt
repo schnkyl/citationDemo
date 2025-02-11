@@ -1,0 +1,30 @@
+Key Deliverables Required (from RFP document):
+
+1. Mobile Application Development:
+    * Citations:
+        * "INTRODUCTION\nThe Boston Public Health Commission (the “BPHC”) will be creating a mobile application that will \r\nprovide real-time information about Covid-19 prevention, surveillance, and resource to residents of\r\nthe City of Boston." (p. 2-3)
+        * "The Boston Public Health Commission is soliciting the development of a mobile application that will provide \r\nreal-time information about Covid-19 prevention, surveillance, and resource to residents of the City of \r\nBoston." (p. 6-7)
+
+2. Core Features and Functionality:
+    * Citation:
+        * "7\r\nFront End Interface\r\nThe functions of the front-end user will be based on audience and staff feedback, surveillance,\r\nresource, privacy, and HIPAA compliance. The interface will have three or more tabs or buttons. \r\n1. a form to gather input from residents regarding covid-19 symptoms.\r\n2. Real-time information on testing and vaccine information. \r\n3. Real-time information on treatment protocols." (p. 7-8)
+
+3. Administrative Functions:
+    * Citation:
+        * "Administrative Functions\r\nThese are functions that the application administrators will use and interact with.\r\nBPHC wishes to have one or more administrative staff who can control several functions:\r\n• Administrators should be able to update or refresh content with the app. \r\n• Administrators should be able to edit or update app features and front-end interface.\r\n• Administrators wish to add, remove, and update data on the site as they learn ofthem in the\r\ncommunity." (p. 7-8)
+
+4. Technical Requirements:
+    * Citation:
+        * "Infrastructure\r\nThe development team should host the application, on BPHC- Microsoft Azure cloud-hosted \r\nsolutions. It should be hardware agnostic, allowing users to view the material on their laptops, \r\ntablets, and mobile phones. They should also be available as downloadable applications on the \r\nrespective app stores (Apple and Google)." (p. 7-8)
+
+5. Analytics:
+    * Citation:
+        * "Analytics\r\nAdministrators wish to track the use of this application. The developers are responsible for \r\nconfiguring Google and Apple Analytics into the application. BPHC is interested in monitoring the \r\nstandard reports from Google and Apple Analytics on the audience, acquisition, and behavior of \r\nusers. We are not interested in explicitly knowing who these users are but in learning about the \r\nusers in aggregate. In addition, we would like the developers to configure their application and the \r\nanalytics so that reporting is human-readable." (p. 7-8)
+
+6. Timeline:
+    * Citation:
+        * "The development of this app will be swift\r\n- implementation is due on May 30, 2023. To succeed, the development team will quickly \r\ngather the functional requirements, subject matter resources (including branding materials and \r\nvisual design elements), and data to incorporate into the application by the deadline." (p. 6-7)
+
+7. Privacy and Security:
+    * Citation:
+        * "Use of data\r\nThe development team cannot use the data provided for any other purpose than to build and \r\nsupport the application. Users should also be able to review the privacy statement for this \r\napplication at any time (See Appendix E)" (p. 7-8)
