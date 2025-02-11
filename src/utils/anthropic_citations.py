@@ -1,6 +1,7 @@
 import base64
 import time
-import anthropic # type: ignore
+import anthropic  # type: ignore
+
 
 class Anthropic_Citations:
     def __init__(self):
@@ -40,8 +41,8 @@ class Anthropic_Citations:
             print(f"An error occurred: {e}")
             response = None
         end_time = time.time()
-        elapsed_time = round(end_time - start_time,2)
+        elapsed_time = round(end_time - start_time, 2)
         print(f"Time taken: {elapsed_time} seconds")
         print(response)
-        print('\n\n\n')
+        print("\n\n\n")
         return response
