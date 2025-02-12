@@ -1,0 +1,15 @@
+In the context of RFPs, there are a few aspects that may not be straightforward or normal:
+Specific Proposal Requirements: The RFP outlines detailed requirements for proposers to follow, including specific sections to be included in the proposal and how they should be structured.
+
+Evaluation Criteria: The document provides a clear breakdown of how proposals will be evaluated, including scoring criteria for different sections such as completeness of response, vendor profile, solution and work plan, etc.
+
+Certifications and Documentation: Proposers are required to include various certifications and documentation, such as the Responsible Bidder Attestation, Underrepresented Business letter, Veteran-Owned Business Letter, and more.
+
+Steering Committee Involvement: The requirement for sign-off from the Steering Committee at each milestone indicates a structured and formalized decision-making process throughout the project.
+
+Scoring Tool: The inclusion of a Scoring Tool in the RFP package suggests a systematic approach to evaluating and comparing proposals based on predefined criteria.
+
+
+p. 9
+p. 18
+p. 4
