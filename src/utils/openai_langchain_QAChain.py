@@ -46,10 +46,10 @@ prompt = ChatPromptTemplate.from_messages(
 
 class OpenAI_LangChain:
     def __init__(self):
-        llm = ChatOpenAI(
+        self.llm = ChatOpenAI(
             model="gpt-4o-mini-2024-07-18"
         )
-        self.structured_llm = llm.with_structured_output(TextBlock)
+        # self.structured_llm = llm.with_structured_output(TextBlock)
 
 
     def get_citations(self, pdf_path, question):
@@ -69,7 +69,7 @@ class OpenAI_LangChain:
         #     self.structured_llm, prompt
         # )
         chain = RetrievalQAWithSourcesChain.from_chain_type(
-            llm=self.structured_llm,
+            llm=self.llm,
             chain_type="stuff",  # "stuff", "refine", "map_reduce" are other options
             retriever=vectorstore.as_retriever(),
             return_source_documents=True,  # Optional: returns the source documents
