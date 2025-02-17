@@ -1,24 +1,28 @@
-### USES THIS DOCUMENT AS REFERENCE: https://python.langchain.com/v0.2/docs/tutorials/pdf_qa/
+### USES THIS DOCUMENT AS REFERENCE: https://python.langchain.com/docs/how_to/qa_citations
 
 import time
 from typing_extensions import Annotated, TypedDict, Optional, List
-
 from dotenv import load_dotenv  # type: ignore
-from langchain_chroma import Chroma  # type: ignore
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI  # type: ignore
-from langchain_text_splitters import RecursiveCharacterTextSplitter  # type: ignore
-from langchain.chains import create_retrieval_chain # type: ignore
-from langchain.chains.combine_documents import create_stuff_documents_chain  # type: ignore
-from langchain_community.document_loaders import PyPDFLoader  # type: ignore
-from langchain_community.vectorstores import FAISS # type: ignore
-from langchain_core.prompts import ChatPromptTemplate  # type: ignore
-from langchain.chat_models import init_chat_model # type: ignore
-from langchain_core.documents import Document # type: ignore
-from langgraph.graph import START, StateGraph # type: ignore
 
-load_dotenv() # Only need when bypassing main
+from langchain_openai import OpenAIEmbeddings  # type: ignore
+from langchain_text_splitters import RecursiveCharacterTextSplitter  # type: ignore
+from langchain_community.document_loaders import PyPDFLoader  # type: ignore
+from langchain_community.vectorstores import FAISS  # type: ignore
+from langchain_core.prompts import ChatPromptTemplate  # type: ignore
+from langchain.chat_models import init_chat_model  # type: ignore
+from langchain_core.documents import Document  # type: ignore
+from langgraph.graph import START, StateGraph  # type: ignore
+from langchain.retrievers.document_compressors import EmbeddingsFilter  # type: ignore
+from IPython.display import Image, display # type: ignore
+
+load_dotenv()
 
 llm = init_chat_model("gpt-4o-mini-2024-07-18", model_provider="openai")
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+
+Q1 = "What are the deliverables?"
+Q2 = "Give me a list of key dates."
+Q3 = "Is there anything that is not straight forward or normal in the context of RFPs?"
 
 class CitationPageLocation(TypedDict):
     cited_text: Annotated[str, ..., "The text that is cited"]
@@ -27,10 +31,12 @@ class CitationPageLocation(TypedDict):
     end_page_number: Annotated[int, ..., "End page number of the citation"]
     start_page_number: Annotated[int, ..., "Start page number of the citation"]
 
+
 class CitedAnswer(TypedDict):
     citations: Optional[List[CitationPageLocation]]
     text: Annotated[str, ..., "Explaination of all cited text"]
     type: Annotated[str, ..., "The type of the block"]
+
 
 system_prompt = (
     "You are an assistant for question-answering tasks. "
@@ -42,63 +48,65 @@ system_prompt = (
     "{context}"
 )
 
+loader = PyPDFLoader(
+        "/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf"
+    )
+docs = loader.load()
+
+splitter = RecursiveCharacterTextSplitter(
+    chunk_size=400,
+    chunk_overlap=0,
+    separators=["\n\n", "\n", ".", " "],
+    keep_separator=False,
+)
+compressor = EmbeddingsFilter(embeddings=embeddings, k=10)
+
 # Define state for application
 class State(TypedDict):
     question: str
     context: List[Document]
     answer: CitedAnswer
 
+def retrieve(state: State):
+    split_docs = splitter.split_documents(docs)
+    stateful_docs = compressor.compress_documents(split_docs, state["question"])
+    return {"context": stateful_docs}
 
-class OpenAI_LangChain:
-    # Define application steps
-    def _retrieve(state: State):
-        loader = PyPDFLoader('/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf')
-        docs = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(
-                    chunk_size=1000,
-                    chunk_overlap=200,  # Recommended to have some overlap between chunks
-                    separators=["\n\n", "\n", " ", ""]
-                )
+def generate(state: State):
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_prompt),
+            ("human", "{question}"),
+        ]
+    )
+    docs_content = "\n\n".join(doc.page_content for doc in state["context"])
+    # structured_llm = llm.with_structured_output(CitedAnswer)
+    messages = prompt.invoke(
+        {"question": state["question"], "context": docs_content}
+    )
+    response = llm.invoke(messages)
+    return {"answer": response}
 
-        chunks = text_splitter.split_documents(docs)
 
-        vectorstore = FAISS.from_documents(chunks, OpenAIEmbeddings())
-        retriever = vectorstore.as_retriever()
-        retrieved_docs = retriever.invoke(state["question"])
-        return {"context": retrieved_docs}
 
-    def _generate(state: State):     
-        prompt = ChatPromptTemplate.from_messages(
-            [
-                ("system", system_prompt),
-                ("human", "{question}"),
-            ]
-        )
-        docs_content = "\n\n".join(doc.page_content for doc in state["context"])
-        structured_llm = llm.with_structured_output(CitedAnswer)
-        messages = prompt.invoke({"question": state["question"], "context": docs_content})
-        response = structured_llm.invoke(messages)
-        return {"answer": response}
-    
-    def get_citations(self, pdf_path, question):
-        # We will do everything above on page load, not effecting the customer
-        start_time = time.time()
-        try:
-            # Compile application and test
-            graph_builder = StateGraph(State).add_sequence([self._retrieve, self._generate])
-            graph_builder.add_edge(START, "retrieve")
-            graph = graph_builder.compile()
+start_time = time.time()
+try:
+    # Compile application and test
+    graph_builder = StateGraph(State).add_sequence([retrieve, generate])
+    graph_builder.add_edge(START, "retrieve")
+    graph = graph_builder.compile()
 
-            result = graph.invoke({"question": "What are the deliverables?"})
+    result = graph.invoke({"question": "What are the deliverables?"})
 
-            print(f"Sources: {result}\n\n")
-            print(f'Answer: {result["answer"]}')
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            response = None
-        end_time = time.time()
-        elapsed_time = round(end_time - start_time, 2)
-        print(f"Time taken: {elapsed_time} seconds")
-        print(response)
-        return response
+    sources = [doc.metadata["source"] for doc in result["context"]]
+    print(f'Answer: {result["answer"]}\n\n')
+    print(f'Page_content: {result["context"][0].page_content}\n\n')
+    print(f'Summary: {result["context"][0].metadata}\n\n')
+except Exception as e:
+    print(f"An error occurred: {e}")
+    response = None
+end_time = time.time()
+elapsed_time = round(end_time - start_time, 2)
+print(f"Time taken: {elapsed_time} seconds")
+
 

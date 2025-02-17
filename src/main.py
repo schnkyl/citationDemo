@@ -4,6 +4,7 @@ from dotenv import load_dotenv  # type: ignore
 
 import utils.anthropic_citations as anthropic_citations # type: ignore
 import utils.openai_langchain_PDFchat as openai_langchain_PDFchat # type: ignore
+import utils.openai_langchain_QAChain as openai_langchain_QAChain # type: ignore
 from utils.pdf import PDF
 import time
 
@@ -12,6 +13,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 ANTHROPIC = anthropic_citations.Anthropic_Citations()
 OPENAI = openai_langchain_PDFchat.OpenAI_LangChain()
+OPENAI_QA_CHAIN = openai_langchain_QAChain.OpenAI_LangChain()
 
 PDF_PATH = "/Boston - Mobile App Development RFP.pdf"
 Q1 = "What are the deliverables?"
@@ -33,8 +35,8 @@ def main():
     # OPENAI.get_citations(PDF_PATH, Q2)
     # time.sleep(20) # To ensure we don't rate limit
     # OPENAI.get_citations(PDF_PATH, Q3)
-
     
+    OPENAI_QA_CHAIN.get_citations(Q1)
 
 
 if __name__ == "__main__":

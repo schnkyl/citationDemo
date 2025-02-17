@@ -1,0 +1,51 @@
+Answer: content='The deliverables include the products or services to be provided by the Proposer as specified in the contract with the Boston Public Health Commission. Each deliverable must be created under the Agreement and considered “works made for hire.” Additionally, the consultant might need to indemnify the BPHC against any claims regarding intellectual property rights related to the deliverables.' additional_kwargs={
+        'refusal': None} response_metadata={
+        'token_usage': {
+        'completion_tokens': 71, 
+    'prompt_tokens': 717, 
+    'total_tokens': 788, 
+    'completion_tokens_details': {
+        'accepted_prediction_tokens': 0, 
+    'audio_tokens': 0, 
+    'reasoning_tokens': 0, 
+    'rejected_prediction_tokens': 0}, 
+    'prompt_tokens_details': {
+        'audio_tokens': 0, 
+    'cached_tokens': 0}}, 
+    'model_name': 'gpt-4o-mini-2024-07-18', 
+    'system_fingerprint': 'fp_13eed4fce1', 
+    'finish_reason': 'stop', 
+    'logprobs': None} id='run-d0555e91-4513-4669-882f-12079ebfcacc-0' usage_metadata={
+        'input_tokens': 717, 
+    'output_tokens': 71, 
+    'total_tokens': 788, 
+    'input_token_details': {
+        'audio': 0, 
+    'cache_read': 0}, 
+    'output_token_details': {
+        'audio': 0, 
+    'reasoning': 0}}
+
+
+Page_content: frequency throughout the project. The Proposer will need to establish a deliverable schedule with
+
+
+Summary: {
+    'producer': 'Adobe PDF Library 17.11.238', 
+    'creator': 'Acrobat PDFMaker 17 for Word', 
+    'creationdate': '2023-01-23T17:14:09-05:00', 
+    'author': 'Amy Rockwood', 
+    'company': '', 
+    'contenttypeid': '0x010100D76522A7F1993B4EBFCB66D2B4C00C58', 
+    'created': 'D:20220927', 
+    'grammarlydocumentid': 'fcad94124394f16da16b107c490c1788496bc8df37c13ba8213134985c8e697d', 
+    'keywords': '', 
+    'lastsaved': 'D:20230108', 
+    'moddate': '2023-01-23T17:14:14-05:00', 
+    'sourcemodified': 'D:20230123221346', 
+    'subject': '', 
+    'title': '', 
+    'source': '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', 
+    'total_pages': 23, 
+    'page': 7, 
+    'page_label': '8'}
