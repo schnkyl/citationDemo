@@ -1,0 +1,85 @@
+Answer: The key dates from the provided documents are as follows:
+
+1. **January 24, 2023** - Issue RFP (Request for Proposal).
+2. **February 10, 2023** - Responses to RFP Questions will be posted.
+3. **February 24, 2023 by 3:00 PM** - Proposal Deadline.
+4. **On or about February 28, 2023** - Selection Made and contract signed following necessary approvals.
+
+""""
+
+==================================================================
+
+
+
+Cited text: "January 24th, 2023 - Issue RFP: The RFP and related attachments can be found and downloaded at the Boston Public Health Commission website City of Boston Bids and RFPs."
+
+doc_content=
+"""""
+questions. 
+ 
+February 10th, 2023 - Responses to RFP Questions will be Posted: 
+Responses to Questions received by email and by the deadline will be posted on or about 
+February 10th, 2023, on the Boston Public Health Commission website City of Boston Bids 
+and RFPs. 
+ 
+FRIDAY, FEBRUARY 24th, 2023 BY 3:00 PM - PROPOSAL DEADLINE 
+ 
+On or about February 28th, 2023 - Selection Made' metadata={'author': 'Amy Rockwood', 'company': '', 'contenttypeid': '0x010100D76522A7F1993B4EBFCB66D2B4C00C58', 'created': 'D:20220927', 'creationdate': '2023-01-23T17:14:09-05:00', 'creator': 'Acrobat PDFMaker 17 for Word', 'grammarlydocumentid': 'fcad94124394f16da16b107c490c1788496bc8df37c13ba8213134985c8e697d', 'keywords': '', 'lastsaved': 'D:20230108', 'moddate': '2023-01-23T17:14:14-05:00', 'page': 2, 'page_label': '3', 'producer': 'Adobe PDF Library 17.11.238', 'source': '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', 'sourcemodified': 'D:20230123221346', 'subject': '', 'title': '', 'total_pages': 23}
+""""
+
+==================================================================
+
+
+
+Cited text: "February 10th, 2023 - Responses to RFP Questions will be Posted: Responses to Questions received by email and by the deadline will be posted on or about February 10th, 2023, on the Boston Public Health Commission website City of Boston Bids and RFPs."
+
+doc_content=
+"""""
+questions. 
+ 
+February 10th, 2023 - Responses to RFP Questions will be Posted: 
+Responses to Questions received by email and by the deadline will be posted on or about 
+February 10th, 2023, on the Boston Public Health Commission website City of Boston Bids 
+and RFPs. 
+ 
+FRIDAY, FEBRUARY 24th, 2023 BY 3:00 PM - PROPOSAL DEADLINE 
+ 
+On or about February 28th, 2023 - Selection Made' metadata={'author': 'Amy Rockwood', 'company': '', 'contenttypeid': '0x010100D76522A7F1993B4EBFCB66D2B4C00C58', 'created': 'D:20220927', 'creationdate': '2023-01-23T17:14:09-05:00', 'creator': 'Acrobat PDFMaker 17 for Word', 'grammarlydocumentid': 'fcad94124394f16da16b107c490c1788496bc8df37c13ba8213134985c8e697d', 'keywords': '', 'lastsaved': 'D:20230108', 'moddate': '2023-01-23T17:14:14-05:00', 'page': 2, 'page_label': '3', 'producer': 'Adobe PDF Library 17.11.238', 'source': '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', 'sourcemodified': 'D:20230123221346', 'subject': '', 'title': '', 'total_pages': 23}
+""""
+
+==================================================================
+
+
+
+Cited text: "FRIDAY, FEBRUARY 24th, 2023 BY 3:00 PM - PROPOSAL DEADLINE"
+
+doc_content=
+"""""
+5  
+All proposals must be delivered to the above office by FEBRUARY 2 4th, 2023 BY 3 :00 PM. 
+Proposals received  after the above date and time will not be considered. Absolutely no 
+exceptions will be made. The Boston Public Health Commission is under no obligatio n to 
+return proposals. 
+ 
+1. NO COMMUNICATIONS OF ANY KIND WILL BE BINDING AGAINST THE BPHC, EXCEPT FOR' metadata={'author': 'Amy Rockwood', 'company': '', 'contenttypeid': '0x010100D76522A7F1993B4EBFCB66D2B4C00C58', 'created': 'D:20220927', 'creationdate': '2023-01-23T17:14:09-05:00', 'creator': 'Acrobat PDFMaker 17 for Word', 'grammarlydocumentid': 'fcad94124394f16da16b107c490c1788496bc8df37c13ba8213134985c8e697d', 'keywords': '', 'lastsaved': 'D:20230108', 'moddate': '2023-01-23T17:14:14-05:00', 'page': 4, 'page_label': '5', 'producer': 'Adobe PDF Library 17.11.238', 'source': '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', 'sourcemodified': 'D:20230123221346', 'subject': '', 'title': '', 'total_pages': 23}
+""""
+
+==================================================================
+
+
+
+Cited text: "On or about February 28th, 2023 - Selection Made"
+
+doc_content=
+"""""
+On or about February 28th, 2023 - Selection Made 
+ 
+Following all necessary BPHC approvals Contract Signed 
+ 
+B. APPLICATION REQUIREMENTS 
+ 
+i. Each proposal shall be prepared simply and economically avoiding the use of elaborate 
+promotional materials beyond what is sufficient to provide a complete, accurate and' metadata={'author': 'Amy Rockwood', 'company': '', 'contenttypeid': '0x010100D76522A7F1993B4EBFCB66D2B4C00C58', 'created': 'D:20220927', 'creationdate': '2023-01-23T17:14:09-05:00', 'creator': 'Acrobat PDFMaker 17 for Word', 'grammarlydocumentid': 'fcad94124394f16da16b107c490c1788496bc8df37c13ba8213134985c8e697d', 'keywords': '', 'lastsaved': 'D:20230108', 'moddate': '2023-01-23T17:14:14-05:00', 'page': 2, 'page_label': '3', 'producer': 'Adobe PDF Library 17.11.238', 'source': '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', 'sourcemodified': 'D:20230123221346', 'subject': '', 'title': '', 'total_pages': 23}
+
+
+==================================================================
