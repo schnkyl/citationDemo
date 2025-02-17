@@ -28,12 +28,13 @@ def main():
     # time.sleep(20)
     # ANTHROPIC.get_citations(pdf_data, Q3)
     
-    OPENAI.get_citations(PDF_PATH, Q1)
-    time.sleep(20) # To ensure we don't rate limit
-    OPENAI.get_citations(PDF_PATH, Q2)
-    time.sleep(20) # To ensure we don't rate limit
-    OPENAI.get_citations(PDF_PATH, Q3)
+    # OPENAI.get_citations(PDF_PATH, Q1)
+    # time.sleep(20) # To ensure we don't rate limit
+    # OPENAI.get_citations(PDF_PATH, Q2)
+    # time.sleep(20) # To ensure we don't rate limit
+    # OPENAI.get_citations(PDF_PATH, Q3)
 
+    
 
 
 if __name__ == "__main__":
