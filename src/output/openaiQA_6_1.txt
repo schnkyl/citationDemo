@@ -1,11 +1,12 @@
-Answer: The key dates from the provided documents are as follows:
+Answer: 
+"""
+The key dates from the provided documents are as follows:
 
 1. **January 24, 2023** - Issue RFP (Request for Proposal).
 2. **February 10, 2023** - Responses to RFP Questions will be posted.
 3. **February 24, 2023 by 3:00 PM** - Proposal Deadline.
 4. **On or about February 28, 2023** - Selection Made and contract signed following necessary approvals.
-
-""""
+"""
 
 ==================================================================
 
