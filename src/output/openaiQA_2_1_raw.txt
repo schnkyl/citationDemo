@@ -1,0 +1,18 @@
+Sources: ['/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf']
+
+
+Answer: {'text': 'The deliverables expected from the proposer include a service-level agreement (SLA) outlining the products or services to be delivered, a solution description and work plan with a timeline, and regular project reports. Additionally, there will be a mobile application launch on or before May 30, 2023, along with scheduled meetings with a Steering Committee. The proposer must also establish a deliverable schedule to track progress throughout the project.', 
+'citations': [{
+    'document_index': 0, 
+    'start_page_number': 0, 
+    'end_page_number': 0, 
+    'document_title': 'Service Deliverables', 
+    'cited_text': 'A service-level agreement (SLA) to establish expectations including the single point for end-user problems, metrics for monitoring process effectiveness, a mobile application to be launched on or before May 30, 2023, and regular reports with a Steering Committee.'
+}, 
+{
+    'document_index': 0,
+    'start_page_number': 0, 
+    'end_page_number': 0, 
+    'document_title': 'Project Overview', 
+    'cited_text': 'Establishing a deliverable schedule.'
+}]}
