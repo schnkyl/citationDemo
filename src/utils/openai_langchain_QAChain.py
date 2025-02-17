@@ -42,38 +42,57 @@ system_prompt = (
     "{context}"
 )
 
+# Define state for application
+class State(TypedDict):
+    question: str
+    context: List[Document]
+    answer: CitedAnswer
 
-loader = PyPDFLoader('/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf')
-docs = loader.load()
-text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200,  # Recommended to have some overlap between chunks
-            length_function=len,
-            separators=["\n\n", "\n", " ", ""]
-        )
-
-chunks = text_splitter.split_documents(docs)
-
-vectorstore = FAISS.from_documents(chunks, OpenAIEmbeddings())
-retriever = vectorstore.as_retriever()
-        
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", system_prompt),
-        ("human", "{question}"),
-    ]
-)
 
 class OpenAI_LangChain:
-    def get_citations(self, pdf_path, question):
-        
+    # Define application steps
+    def _retrieve(state: State):
+        loader = PyPDFLoader('/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf')
+        docs = loader.load()
+        text_splitter = RecursiveCharacterTextSplitter(
+                    chunk_size=1000,
+                    chunk_overlap=200,  # Recommended to have some overlap between chunks
+                    separators=["\n\n", "\n", " ", ""]
+                )
 
+        chunks = text_splitter.split_documents(docs)
+
+        vectorstore = FAISS.from_documents(chunks, OpenAIEmbeddings())
+        retriever = vectorstore.as_retriever()
+        retrieved_docs = retriever.invoke(state["question"])
+        return {"context": retrieved_docs}
+
+    def _generate(state: State):     
+        prompt = ChatPromptTemplate.from_messages(
+            [
+                ("system", system_prompt),
+                ("human", "{question}"),
+            ]
+        )
+        docs_content = "\n\n".join(doc.page_content for doc in state["context"])
+        structured_llm = llm.with_structured_output(CitedAnswer)
+        messages = prompt.invoke({"question": state["question"], "context": docs_content})
+        response = structured_llm.invoke(messages)
+        return {"answer": response}
+    
+    def get_citations(self, pdf_path, question):
         # We will do everything above on page load, not effecting the customer
         start_time = time.time()
         try:
-            question_answer_chain = create_stuff_documents_chain(self.llm, prompt)
-            rag_chain = create_retrieval_chain(retriever, question_answer_chain)
-            response = rag_chain.invoke({"input": question})
+            # Compile application and test
+            graph_builder = StateGraph(State).add_sequence([self._retrieve, self._generate])
+            graph_builder.add_edge(START, "retrieve")
+            graph = graph_builder.compile()
+
+            result = graph.invoke({"question": "What are the deliverables?"})
+
+            print(f"Sources: {result}\n\n")
+            print(f'Answer: {result["answer"]}')
         except Exception as e:
             print(f"An error occurred: {e}")
             response = None
@@ -83,33 +102,3 @@ class OpenAI_LangChain:
         print(response)
         return response
 
-# Define state for application
-class State(TypedDict):
-    question: str
-    context: List[Document]
-    answer: CitedAnswer
-
-
-# Define application steps
-def retrieve(state: State):
-    retrieved_docs = retriever.invoke(state["question"])
-    return {"context": retrieved_docs}
-
-
-def generate(state: State):
-    docs_content = "\n\n".join(doc.page_content for doc in state["context"])
-    structured_llm = llm.with_structured_output(CitedAnswer)
-    messages = prompt.invoke({"question": state["question"], "context": docs_content})
-    response = structured_llm.invoke(messages)
-    return {"answer": response}
-
-# Compile application and test
-graph_builder = StateGraph(State).add_sequence([retrieve, generate])
-graph_builder.add_edge(START, "retrieve")
-graph = graph_builder.compile()
-
-result = graph.invoke({"question": "What are the deliverables?"})
-
-sources = [doc.metadata["source"] for doc in result["context"]]
-print(f"Sources: {sources}\n\n")
-print(f'Answer: {result["answer"]}')

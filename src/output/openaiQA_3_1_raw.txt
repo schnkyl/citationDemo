@@ -1,0 +1,23 @@
+Sources: ['/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf', '/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf']
+
+
+Answer: 
+{'text': 'The deliverables include the agreed-upon products or services to be delivered as per the service-level agreement (SLA) established between the vendor and the Boston Public Health Commission (BPHC). Additionally, the selected proposer is required to establish a deliverable schedule, which is expected to outline the specific outputs and timelines throughout the project. Regular reports to the Steering Committee are also part of the deliverables.', 
+'citations': [{'
+    document_title': 'RFP Specifications', 
+    'start_page_number': 20, 
+    'end_page_number': 20, 
+    'cited_text': 'The selected Proposer will be required to provide regular reports and meet with a Steering Committee made up of BPHC officials.'
+}, 
+{
+    'document_title': 'RFP Specifications', 
+    'start_page_number': 20, 
+    'end_page_number': 20, 
+    'cited_text': 'The Proposer will need to establish a deliverable schedule.'
+}, 
+{
+    'document_title': 'RFP Specifications', 
+    'start_page_number': 20, 
+    'end_page_number': 20, 
+    'cited_text': 'The vendor should develop a service-level agreement (SLA) to establish expectations between the vendor and the BPHC describing the products or services to be delivered.'
+}]}
