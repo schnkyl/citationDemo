@@ -1,16 +1,23 @@
-### Started using RetrievalQAWithSourcesChain: https://python.langchain.com/api_reference/langchain/chains/langchain.chains.qa_with_sources.retrieval.RetrievalQAWithSourcesChain.html#langchain.chains.qa_with_sources.retrieval.RetrievalQAWithSourcesChain.combine_documents_chain
+### USES THIS DOCUMENT AS REFERENCE: https://python.langchain.com/v0.2/docs/tutorials/pdf_qa/
 
 import time
 from typing_extensions import Annotated, TypedDict, Optional, List
 
+from dotenv import load_dotenv  # type: ignore
 from langchain_chroma import Chroma  # type: ignore
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI  # type: ignore
 from langchain_text_splitters import RecursiveCharacterTextSplitter  # type: ignore
-# from langchain.chains.combine_documents import create_stuff_documents_chain  # type: ignore
-from langchain.chains import RetrievalQAWithSourcesChain  # type: ignore
+from langchain.chains import create_retrieval_chain # type: ignore
 from langchain.chains.combine_documents import create_stuff_documents_chain  # type: ignore
 from langchain_community.document_loaders import PyPDFLoader  # type: ignore
 from langchain_core.prompts import ChatPromptTemplate  # type: ignore
+from langchain.chat_models import init_chat_model # type: ignore
+from langchain_core.documents import Document # type: ignore
+from langgraph.graph import START, StateGraph # type: ignore
+
+load_dotenv() # Only need when bypassing main
+
+llm = init_chat_model("gpt-4o-mini-2024-07-18", model_provider="openai")
 
 class CitationPageLocation(TypedDict):
     cited_text: Annotated[str, ..., "The text that is cited"]
@@ -18,14 +25,11 @@ class CitationPageLocation(TypedDict):
     document_title: Annotated[str, ..., "Title of the document"]
     end_page_number: Annotated[int, ..., "End page number of the citation"]
     start_page_number: Annotated[int, ..., "Start page number of the citation"]
-    type: Annotated[str, ..., "Type of the citation"]
 
-
-class TextBlock(TypedDict):
+class CitedAnswer(TypedDict):
     citations: Optional[List[CitationPageLocation]]
-    text: Annotated[str, ..., "Explaination of the cited text"]
+    text: Annotated[str, ..., "Explaination of all cited text"]
     type: Annotated[str, ..., "The type of the block"]
-
 
 system_prompt = (
     "You are an assistant for question-answering tasks. "
@@ -33,52 +37,75 @@ system_prompt = (
     "the question. If you don't know the answer, say that you "
     "don't know. Use three sentences maximum and keep the "
     "answer concise."
-    "\n\n"
+    "\n\nHere are the documents: "
     "{context}"
 )
 
+
+loader = PyPDFLoader('/Users/kyle/Documents/BreezeRFP/citationDemo/src/Boston - Mobile App Development RFP.pdf')
+docs = loader.load()
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000, chunk_overlap=200
+)
+splits = text_splitter.split_documents(docs)
+vectorstore = Chroma.from_documents(
+    documents=splits, embedding=OpenAIEmbeddings()
+)
+retriever = vectorstore.as_retriever()
+        
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
-        ("human", "{input}"),
+        ("human", "{question}"),
     ]
 )
 
 class OpenAI_LangChain:
-    def __init__(self):
-        self.llm = ChatOpenAI(
-            model="gpt-4o-mini-2024-07-18"
-        )
-        # self.structured_llm = llm.with_structured_output(TextBlock)
-
-
     def get_citations(self, pdf_path, question):
-        loader = PyPDFLoader('/Users/kyle/Documents/BreezeRFP/citationDemo/src'+ pdf_path)
-        docs = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000, chunk_overlap=200
-        )
-        splits = text_splitter.split_documents(docs)
-        vectorstore = Chroma.from_documents(
-            documents=splits, embedding=OpenAIEmbeddings()
-        )
+        
 
         # We will do everything above on page load, not effecting the customer
         start_time = time.time()
-        # combine_docs_chain = create_stuff_documents_chain(
-        #     self.structured_llm, prompt
-        # )
-        chain = RetrievalQAWithSourcesChain.from_chain_type(
-            llm=self.llm,
-            chain_type="stuff",  # "stuff", "refine", "map_reduce" are other options
-            retriever=vectorstore.as_retriever(),
-            return_source_documents=True,  # Optional: returns the source documents
-        )
-        print("chain created")
-        response = chain.invoke(question)
-        
+        try:
+            question_answer_chain = create_stuff_documents_chain(self.llm, prompt)
+            rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+            response = rag_chain.invoke({"input": question})
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            response = None
         end_time = time.time()
         elapsed_time = round(end_time - start_time, 2)
         print(f"Time taken: {elapsed_time} seconds")
         print(response)
         return response
+
+# Define state for application
+class State(TypedDict):
+    question: str
+    context: List[Document]
+    answer: CitedAnswer
+
+
+# Define application steps
+def retrieve(state: State):
+    retrieved_docs = retriever.invoke(state["question"])
+    return {"context": retrieved_docs}
+
+
+def generate(state: State):
+    docs_content = "\n\n".join(doc.page_content for doc in state["context"])
+    structured_llm = llm.with_structured_output(CitedAnswer)
+    messages = prompt.invoke({"question": state["question"], "context": docs_content})
+    response = structured_llm.invoke(messages)
+    return {"answer": response}
+
+# Compile application and test
+graph_builder = StateGraph(State).add_sequence([retrieve, generate])
+graph_builder.add_edge(START, "retrieve")
+graph = graph_builder.compile()
+
+result = graph.invoke({"question": "What are the deliverables?"})
+
+sources = [doc.metadata["source"] for doc in result["context"]]
+print(f"Sources: {sources}\n\n")
+print(f'Answer: {result["answer"]}')
