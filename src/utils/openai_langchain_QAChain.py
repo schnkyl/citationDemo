@@ -5,8 +5,6 @@ from dotenv import load_dotenv  # type: ignore
 from langchain_chroma import Chroma  # type: ignore
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI  # type: ignore
 from langchain_text_splitters import RecursiveCharacterTextSplitter  # type: ignore
-from langchain.chains import create_retrieval_chain  # type: ignore
-from langchain.chains.combine_documents import create_stuff_documents_chain  # type: ignore
 from langchain_community.document_loaders import PyPDFLoader  # type: ignore
 from langchain_community.vectorstores import FAISS  # type: ignore
 from langchain_core.prompts import ChatPromptTemplate  # type: ignore
@@ -78,10 +76,10 @@ def retrieve(state: State):
     chunks = text_splitter.split_documents(docs)
 
     global vectorstore
-    vectorstore = Chroma.from_documents(documents=chunks, embedding=embeddings)
+    vectorstore = FAISS.from_documents(chunks, OpenAIEmbeddings())
     retriever = vectorstore.as_retriever()
 
-    retrieved_docs = retriever.invoke(state["question"], k=5)
+    retrieved_docs = retriever.invoke(state["question"], k=20)
     return {"context": retrieved_docs}
 
 

@@ -1,0 +1,41 @@
+After carefully reviewing the document, there are a few aspects of this Request for Proposal (RFP) that are somewhat notable or slightly unusual:
+
+1. The project is specifically for creating a mobile application to provide real-time information about COVID-19, including prevention, surveillance, and resources for Boston residents. The project will be completed in two distinct phases:
+   - Soliciting community input
+   - Mobile application development
+   - Cited text: "INTRODUCTION\r\nThe Boston Public Health Commission (the “BPHC”) will be creating a mobile application that will \r\nprovide real-time information about Covid-19 prevention, surveillance, and resource to residents of\r\nthe City of Boston. This project will involve two distinct phases: 1) Solicit Community Input, Identify \r\nFeatures and Functionality, Organize and Assemble Content; and 2) Mobile Application Development.\r\nThe BPHC is currently seeking proposals for the Mobile App Development that will develop the mobile \r\napplication to include the features, functionality, and content as defined in this project.\r\n"
+   - Page: 2-3
+
+2. The development timeline is extremely compressed. The implementation is due on May 30, 2023, which means the development team will need to quickly:
+   - Gather functional requirements
+   - Collect subject matter resources
+   - Incorporate branding materials and visual design elements
+   - Cited text: "SCOPE OF WORK \r\nProject Management \r\nThe project will require a development team who understands waterfalls project management or \r\nanother fixed-price project management paradigm. The development of this app will be swift\r\n- implementation is due on May 30, 2023. To succeed, the development team will quickly \r\ngather the functional requirements, subject matter resources (including branding materials and \r\nvisual design elements), and data to incorporate into the application by the deadline.\r\n"
+   - Page: 6-7
+
+3. There are some interesting design considerations:
+   - The app should follow the "Rule of Least Surprise"
+   - It should be organized as a decision tree
+   - Focus group participants specifically requested that the app should not look like a mental health app, but rather a resource app
+   - The vendor must provide a UX designer who will create a design sheet with color choices and navigation examples
+   - Cited text: "8\r\nOverall Design Feedback\r\nOverall, the design would follow the Rule of Least Surprise, a general rule of design to “Do the least \r\nsurprising thing.” The app should be organized as a decision tree with users having data served to \r\nthe user as they answer more detailed-providing questions. The stigma of needing mental health \r\nassistance remains very real for users. Focus group participants indicated the app should not look \r\nlike a mental health app but a resource app. The vendor must have a UX designer who would \r\nprovide a design sheet with color choices and navigation examples for use by the development \r\nteam. "
+   - Page: 8-9
+
+4. The RFP has specific requirements for translation and accessibility:
+   - The development team must include methods to translate the app into other languages
+   - They must also identify how they will handle Web Content Accessibility Guidelines
+   - Cited text: "In addition, BPHC would provide real-time information about Covid-19 prevention, \r\nsurveillance, and resource:\r\nTranslation and ADA Support\r\nIn order to support use of this app by all in Erie BPHC, the development team needs to include \r\nin their proposal methods to translate the app into other languages either through direct \r\ntranslation, technical means (similar to Google Translate), or both. In addition, please identify \r\nhow your development will handle the Web Content Accessibility Guidelines \r\n(https://www.w3.org/WAI/tips/designing/).\r\n"
+   - Page: 8-9
+
+5. The BPHC is making a notable effort to have an equitable procurement process by encouraging and considering Certified Unrepresentative Businesses Enterprises (CUBE), which includes:
+   - Minority-owned Business Enterprises
+   - Women-owned Business Enterprises
+   - Veteran-owned Business Enterprises
+   - Disability-owned Business Enterprises
+   - LGBTQ Business Enterprises
+   - Minority and Women Non-Profits
+   - Local businesses
+   - Cited text: "As part of BPHC’s efforts to have an equitable procurement process, BPHC will consider and encourage \r\nCertified Unrepresentative Businesses Enterprises(CUBE) that include; Minority-owned Business \r\nEnterprises (MBE), Women-owned Business Enterprises (WBE), Veteran-owned Business Enterprises \r\n(VBE), Disability-owned Business Enterprise (DOBE), Lesbian Gay Bisexual Transgender Business \r\nEnterprises (LGBTBE), Minority Non-Profit(MNPO), Women Non-Profit(WNPO), Minority Women Non\x02Profit (MWNPO) and local businesses to apply to this RFP."
+   - Page: 2-3
+
+While these elements make the RFP somewhat unique, they are not fundamentally unusual for a modern, socially-conscious government procurement process. The document follows standard RFP structure and includes typical sections like evaluation criteria, proposal requirements, and legal protections.

@@ -1,0 +1,29 @@
+Here are the key dates from the document:
+
+1. January 24, 2023 - RFP Issue Date
+   - Cited text: "ITS-002-23\r\nMobile App Development Service\r\nJanuary 24, 2023\r\nIssued by\r\nBoston Public Health Commission\r\n1010 Massachusetts Ave, 2nd Floor, \r\nBoston, MA 02118"
+   [Boston - Mobile App Development RFP.pdf, pp. 1-2]
+
+2. February 6th, 2023, by 3:00 pm - Deadline for Written Questions
+   - Questions should be sent via email to ITSRFP@bphc.org
+   - Must include "Question - RFP# Mobile App Development - ITS-002-23" in the subject line
+   - Cited text: "February 6th, 2023, by 3:00 pm - Deadline for Written Questions to be Submitted:\r\nWritten Questions should be sent by email to ITSRFP@bphc.org. All questions need to be \r\nreceived no later than February 6th, 2023, at 3:00 pm. Be sure to include “Question - RFP#\r\nMobile App Development - ITS-002-23” as the Subject Line in your email. Only questions \r\nreceived by email by February 6th, 2023, at 3:00 pm WITH THE ABOVE-REFERENCED SUBJECT \r\nLINE WILL RECEIVE A RESPONSE."
+   [Boston - Mobile App Development RFP.pdf, pp. 3-4]
+
+3. February 10th, 2023 - Responses to RFP Questions will be Posted on the Boston Public Health Commission website
+   - Cited text: "February 10th, 2023 - Responses to RFP Questions will be Posted:\r\nResponses to Questions received by email and by the deadline will be posted on or about \r\nFebruary 10th, 2023, on the Boston Public Health Commission website City of Boston Bids \r\nand RFPs."
+   [Boston - Mobile App Development RFP.pdf, pp. 3-4]
+
+4. February 24th, 2023 by 3:00 PM - Proposal Deadline
+   - Cited text: "FRIDAY, FEBRUARY 24th, 2023 BY 3:00 PM - PROPOSAL DEADLINE\r\nOn or about February 28th, 2023 - Selection Made\r\nFollowing all necessary BPHC approvals Contract Signed"
+   [Boston - Mobile App Development RFP.pdf, pp. 3-4]
+
+5. On or about February 28th, 2023 - Selection Made
+   - Cited text: "FRIDAY, FEBRUARY 24th, 2023 BY 3:00 PM - PROPOSAL DEADLINE\r\nOn or about February 28th, 2023 - Selection Made\r\nFollowing all necessary BPHC approvals Contract Signed"
+   [Boston - Mobile App Development RFP.pdf, pp. 3-4]
+
+6. May 30, 2023 - Mobile Application Launch Deadline
+   - This is a fast-tracked project with a non-negotiable deadline
+   - Cited text: "The development of this app will be swift\r\n- implementation is due on May 30, 2023."
+   - Cited text: "C. SCHEDULE\r\nThis is a fast-tracked project and the selected Proposer(s) should begin work upon execution of \r\nthe contract with the BPHC. The mobile application will be launched on or before May 30, 2023."
+   [Boston - Mobile App Development RFP.pdf, pp. 6-9]
